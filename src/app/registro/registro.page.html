@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>registro</ion-title>
+    <io-buttons slot="start">
+      <ion-button color="primary" routerLink="/login" > 
+        <ion-icon slot="icon-only" name="arrow-back-outline" ></ion-icon>
+      </ion-button>
+    </io-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-input type="text" placeholder="E-mail" [(ngModel)]="email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="password" placeholder="Senha" [(ngModel)]="senha"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-button (click)="cadastrar()">Salvar</ion-button>
+  </ion-item>
+
+</ion-content>

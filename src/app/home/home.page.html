@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Seja Bem Vindo!
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,8 +13,28 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <app-explore-container name="Home"></app-explore-container>
+    <div >
+      <ion-button routerLink="/novo">Novo</ion-button>
+    </div>
+    <div>
+      <ion-button routerLink="/form-contato"> Cadastrar Contato</ion-button>
+    </div>
+    <div>
+      <ion-button routerLink="/contatos"> Lista de Contatos</ion-button>
+    </div>
+    <div id="container">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            Usuário logado: {{usuario}}
+          </ion-col>
+        </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-button (click)="sair()">Sair</ion-button>
+            </ion-col>
+          </ion-row>
+      </ion-grid>
+    </div>
 </ion-content>

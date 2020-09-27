@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Contatos</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button routerLink="/form-contato">
+      <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <io-buttons slot="start">
+      <ion-button color="primary" routerLink="/home" > 
+        <ion-icon slot="icon-only" name="arrow-back-outline" ></ion-icon>
+      </ion-button>
+    </io-buttons>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+  <ion-card *ngFor="let item of contatos">
+    <ion-card-haeder>
+      <ion-card-title>{{item.nome}}</ion-card-title>
+      <ion-card-subtitle>{{item.email}}</ion-card-subtitle>
+      <ion-card-subtitle>{{item.telefone}}</ion-card-subtitle>
+    </ion-card-haeder>
+    <ion-card-content>
+      <ion-button (click)="inicioAlteracao(item)" >Editar</ion-button>
+      <ion-button (click)="remover(item)">Excluit</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+ 
