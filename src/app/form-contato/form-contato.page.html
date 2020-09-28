@@ -28,7 +28,7 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button (click)="enviarContato()">Salvar</ion-button>
+        <ion-button (click)="enviarContato()" [disabled]="!nome || !email || !telefone">Salvar</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
