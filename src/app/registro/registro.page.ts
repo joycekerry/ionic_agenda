@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ExecOptionsWithStringEncoding } from 'child_process';
+//import { ExecOptionsWithStringEncoding } from 'child_process';
 import { NavController } from '@ionic/angular';
 import { AutenticacaoService } from '../servicos/autenticacao.service';
 
