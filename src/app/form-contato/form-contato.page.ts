@@ -8,6 +8,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ContatoService } from '../servicos/contato.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
+
+
 @Component({
   selector: 'app-form-contato',
   templateUrl: './form-contato.page.html',
@@ -18,6 +20,7 @@ export class FormContatoPage implements OnInit {
   nome: string;
   email: string;
   telefone: string;
+ 
 
   validacao: FormGroup;
   mensagemErro: string = '';
@@ -105,4 +108,5 @@ export class FormContatoPage implements OnInit {
     this.nav.navigateForward("contatos");
   }
 
+  
 }

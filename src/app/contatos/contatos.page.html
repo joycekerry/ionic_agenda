@@ -17,6 +17,10 @@
 </ion-header>
  
 <ion-content>
+  <ion-searchbar [(ngModel)]="pesquisa" (ionChange)="buscar()"
+  placeholder="Digite o termo de pesquisa">
+
+  </ion-searchbar>
   <ion-card *ngFor="let item of contatos">
     <io-card-haeder>
       <ion-card-title>{{item.nome}}</ion-card-title>

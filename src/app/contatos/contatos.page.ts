@@ -7,6 +7,8 @@ import { NavController, AlertController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { ContatoService } from '../servicos/contato.service';
 import { removeSummaryDuplicates } from '@angular/compiler';
+import { first } from 'rxjs/operators';
+
 @Component({
   selector: 'app-contatos',
   templateUrl: './contatos.page.html',
@@ -16,7 +18,7 @@ export class ContatosPage implements OnInit {
  //receber as informações, e fazer o tratamento. (por dentro da variavel contatos)
  //any espera qualquer coisa(recebe qualquer tipo de dado)
   contatos: any;
-
+  pesquisa: string;
   constructor(private service: ContatoService,
     //passando como paramentro (portando como atributo)
     //metodo é invocado
@@ -106,4 +108,31 @@ export class ContatosPage implements OnInit {
    await confirmacao.present();
 
   }
+    //filtro
+  async buscar(){
+    //caso tiver nulo restaura todo mundo
+    if(!this.pesquisa){
+      this.service.listLazyRoutes().subscribe(data =>{
+        this.contatos = data.map(e => {
+          return{
+            id: e.payload.doc.id,
+            nome: e.payload.doc.data()['nome'],
+            email: e.payload.doc.data()['email'],
+            telefone: e.payload.doc.data()['telefone']
+          }
+        })
+      })
+    }
+
+    this.contatos = this.contatos.filter(atual => {
+      if(atual.nome && this.pesquisa){
+        //toLowerCase coloca o atributo em caixa baixa
+        return atual.nome.toLowerCase().indexOf(this.pesquisa.toLowerCase())
+             > -1;
+
+      }
+    })
+
+  }
+
 }
